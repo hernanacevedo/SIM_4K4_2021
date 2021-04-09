@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QTableWidgetItem
-from GeneracionNroRandom.generadores import controlGeneradores
+from TP1.GeneracionNroRandom.generadores import controlGeneradores
 
 
 
