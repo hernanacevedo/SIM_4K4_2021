@@ -65,6 +65,7 @@ def actividad_A(semana=5):
     else:
         False
     return actividadA
+
 def actividad_B_otra_version(semana=5):
     numeros_generados = [0.1931, 0.8967, 0.4885, 0.9556, 0.3583, 0.6396, 0.3843, 0.0999, 0.2068, 0.6413, 0.6139, 0.9631,
                          0.1207, 0.2246, 0.6152, 0.5444, 0.3834, 0.1605, 0.0124, 0.712, 0.6773, 0.1727, 0.3538, 0.2479,
@@ -260,6 +261,7 @@ def calcularprobabilidad_A(semana=6):
         A=16*0.15
 
     return A
+
 print(calcularprobabilidad_A())
 
 def calcularProbabilidad_B():
