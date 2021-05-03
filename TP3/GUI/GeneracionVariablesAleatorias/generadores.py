@@ -80,40 +80,40 @@ class controladorDistribuciones():
         i = 0
         while i < cantIntervalos:
             if i == 0:
-                intervalos.append([round(minimo, 4), round(minimo + paso, 4 )])
+                intervalos.append([round(minimo, 2), round(minimo + paso, 2 )])
             else:
-                minimoAnterior = round(intervalos[i - 1][1], 4)
-                intervalos.append([minimoAnterior, round(minimoAnterior + paso, 4)])
+                minimoAnterior = round(intervalos[i - 1][1], 2)
+                intervalos.append([minimoAnterior, round(minimoAnterior + paso, 2)])
 
             i += 1
 
         for i in intervalos:
-            mediaDeCadaIntervalo.append(round((i[0] + i[1]) / 2, 4))
+            mediaDeCadaIntervalo.append(round((i[0] + i[1]) / 2, 2))
 
         return intervalos, mediaDeCadaIntervalo
 
     def testChiCuadrado(self,id,serie,cantIntervalos,maximo,minimo,media_Exp=None,
                         media_Norm=None,desviac_Norm=None,landa_Cuason=None):
-        maximo=int(maximo)
-        minimo=int(minimo)
+        maximo=round(float(maximo),2)
+        minimo=round(float(minimo),2)
         id=int(id)
 
         if media_Exp is not None:
             media_Exp = float(media_Exp.replace(",", "."))
-            if media_Exp == int(media_Exp):
-                media_Exp = int(media_Exp)
+            if media_Exp == float(media_Exp):
+                media_Exp = float(media_Exp)
         if media_Norm is not None:
             media_Norm = float(media_Norm.replace(",", "."))
-            if media_Norm == int(media_Norm):
-                media_Norm = int(media_Norm)
+            if media_Norm == float(media_Norm):
+                media_Norm = float(media_Norm)
         if desviac_Norm is not None:
             desviac_Norm = float(desviac_Norm.replace(",", "."))
-            if desviac_Norm == int(desviac_Norm):
-                desviac_Norm = int(desviac_Norm)
+            if desviac_Norm == float(desviac_Norm):
+                desviac_Norm = float(desviac_Norm)
         if landa_Cuason is not None:
             landa_Cuason= float(landa_Cuason.replace(",", "."))
-            if landa_Cuason == int(landa_Cuason):
-                landa_Cuason = int(landa_Cuason)
+            if landa_Cuason == float(landa_Cuason):
+                landa_Cuason = float(landa_Cuason)
 
         cantIntervalos = int(cantIntervalos)
 
@@ -135,9 +135,12 @@ class controladorDistribuciones():
                 item += 1
 
             frecuenciaReal.append(contadorApariciones)
-
+        print(frecuenciaReal)
+        print(maximo)
+        print(minimo)
         if id==0:
             frecuencias_esperadas = [len(serie) / cantIntervalos] * cantIntervalos
+
         else:
             for i in intervalos:
                 frecuencia_esperada = 0
@@ -170,9 +173,11 @@ class controladorDistribuciones():
 
         diferencia2 = np.power(diferencia1, 2)
         # me devuelve (FO-FE)^2
+        #print(diferencia2)
 
         diferencia3 = np.divide(diferencia2, frecuencias_esperadas)
         # me devuelve (FO-FE)^2/FE
+        #print(diferencia3)
 
         chi_cuadrado = round(np.sum(diferencia3),4)
         # me devuelve el total de sum (FO-FE)^2/FE
