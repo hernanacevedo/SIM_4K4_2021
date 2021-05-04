@@ -1,6 +1,6 @@
 import random
 import math
-import numpy as np
+import numpy as np ,numpy
 import matplotlib.pyplot as plt
 from scipy import stats
 
@@ -52,43 +52,68 @@ class controladorDistribuciones():
             })
         return numeros_generados
 
-    def generarDistribucionCuasson(self,cantidad,media):
-        numeros_generados = []
-        media=float(media.replace(",", "."))
+   # def generarDistribucionCuasson(self,cantidad,media):
+    #    numeros_generados = []
+     #   media=float(media.replace(",", "."))
+      #  cantidad = int(cantidad)
+       # # Genero lista de numeros aleatorios
+        #for i in range(0, cantidad):
+          #  p=1
+         #   x=-1
+           # a=math.exp(-media)
+            #u=random.random()
+            #p= p * u
+            #while p >=a:
+             #   u=random.random()
+              #  p= p* u
+               # x= x+ 1
+            # numeros_generados.append({
+              #  "nro_orden": i + 1,
+               # "nro_random":x
+            #})
+        # return numeros_generados
+
+    def generar_variables_aleatorias_poisson(self, cantidad,lambd):
+
+        # Convierto tipos de datos
         cantidad = int(cantidad)
-        # Genero lista de numeros aleatorios
+        lambd = float(lambd.replace(",", "."))
+
+        # Inicializo datos
+        variables_aleatorias = []
+
+        # Genero lista de variables aleatorias
+        variables_aleatorias_poisson = stats.poisson(lambd).rvs(size=cantidad)
         for i in range(0, cantidad):
-            p=1
-            x=-1
-            a=math.exp(-media)
-            u=random.random()
-            p= p * u
-            while p >=a:
-                u=random.random()
-                p= p* u
-                x= x+ 1
-            numeros_generados.append({
+            va_poisson = variables_aleatorias_poisson[i]
+            variables_aleatorias.append({
                 "nro_orden": i + 1,
-                "nro_random":x
+                "nro_random": va_poisson
             })
-        return numeros_generados
+
+        return variables_aleatorias
 
     def dividirEnIntervalos(self,cantIntervalos,maximo, minimo):
         paso = (maximo - minimo) / cantIntervalos
         intervalos = []
         mediaDeCadaIntervalo = []
+        #mediaDeCadaIntervalo1=[]
+        #intervalos1=[]
         i = 0
         while i < cantIntervalos:
             if i == 0:
                 intervalos.append([round(minimo, 2), round(minimo + paso, 2 )])
+                #intervalos1.append({"intervalos":[round(minimo, 2), round(minimo + paso, 2 )]})
             else:
                 minimoAnterior = round(intervalos[i - 1][1], 2)
                 intervalos.append([minimoAnterior, round(minimoAnterior + paso, 2)])
-
+               # intervalos1.append({"intervalos":[minimoAnterior, round(minimoAnterior + paso, 2)]})
             i += 1
 
         for i in intervalos:
             mediaDeCadaIntervalo.append(round((i[0] + i[1]) / 2, 2))
+            #mediaDeCadaIntervalo.append({"media":round((i[0] + i[1]) / 2, 2)})
+
 
         return intervalos, mediaDeCadaIntervalo
 
@@ -120,7 +145,7 @@ class controladorDistribuciones():
         frecuenciaReal = []
         frecuencias_esperadas=[]
 
-        intervalos, mediaDeCadaIntervalo = self.dividirEnIntervalos(cantIntervalos,maximo,minimo)
+        intervalos, mediaDeCadaIntervalo, = self.dividirEnIntervalos(cantIntervalos,maximo,minimo)
 
 
         for i in intervalos:
@@ -135,9 +160,6 @@ class controladorDistribuciones():
                 item += 1
 
             frecuenciaReal.append(contadorApariciones)
-        print(frecuenciaReal)
-        print(maximo)
-        print(minimo)
         if id==0:
             frecuencias_esperadas = [len(serie) / cantIntervalos] * cantIntervalos
 
@@ -164,7 +186,7 @@ class controladorDistribuciones():
                     frecuencia_esperada = int(frecuencia_esperada)
                 frecuencias_esperadas.append(frecuencia_esperada)
 
-        return frecuencias_esperadas, frecuenciaReal, mediaDeCadaIntervalo
+        return frecuencias_esperadas, frecuenciaReal, mediaDeCadaIntervalo, intervalos
 
     def prueba_chicuadrado(self, frecuencias_observadas, frecuencias_esperadas):
 
@@ -182,7 +204,9 @@ class controladorDistribuciones():
         chi_cuadrado = round(np.sum(diferencia3),4)
         # me devuelve el total de sum (FO-FE)^2/FE
 
-        return chi_cuadrado
+        d=np.cumsum(diferencia3)
+        # me devuelve el  sum (FO-FE)^2/FE
+        return chi_cuadrado, d
 
     def generar_histograma(self,mediaDeCadaIntervalo,frecuenciasEsperadas,frecuenciasObserbadas):
 
