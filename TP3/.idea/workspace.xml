@@ -122,66 +122,49 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="274" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1619270325482" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1620081654483">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1619639736331">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1620081654483" />
-    <state width="1345" height="253" key="GridCell.Tab.0.bottom" timestamp="1620141033535">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1619639736331" />
+    <state width="1345" height="249" key="GridCell.Tab.0.bottom" timestamp="1619648150612">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="253" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1620141033535" />
-    <state width="1345" height="253" key="GridCell.Tab.0.center" timestamp="1620141033535">
+    <state width="1345" height="249" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1619648150612" />
+    <state width="1345" height="249" key="GridCell.Tab.0.center" timestamp="1619648150611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="253" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1620141033535" />
-    <state width="1345" height="253" key="GridCell.Tab.0.left" timestamp="1620141033535">
+    <state width="1345" height="249" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1619648150611" />
+    <state width="1345" height="249" key="GridCell.Tab.0.left" timestamp="1619648150607">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="253" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1620141033535" />
-    <state width="1345" height="253" key="GridCell.Tab.0.right" timestamp="1620141033535">
+    <state width="1345" height="249" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1619648150607" />
+    <state width="1345" height="249" key="GridCell.Tab.0.right" timestamp="1619648150611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="253" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1620141033535" />
-    <state width="1345" height="253" key="GridCell.Tab.1.bottom" timestamp="1620141033536">
+    <state width="1345" height="249" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1619648150611" />
+    <state width="1345" height="236" key="GridCell.Tab.1.bottom" timestamp="1619619885012">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="253" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1620141033536" />
-    <state width="1345" height="253" key="GridCell.Tab.1.center" timestamp="1620141033535">
+    <state width="1345" height="236" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1619619885012" />
+    <state width="1345" height="236" key="GridCell.Tab.1.center" timestamp="1619619885012">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="253" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1620141033535" />
-    <state width="1345" height="253" key="GridCell.Tab.1.left" timestamp="1620141033535">
+    <state width="1345" height="236" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1619619885012" />
+    <state width="1345" height="236" key="GridCell.Tab.1.left" timestamp="1619619885012">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="253" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1620141033535" />
-    <state width="1345" height="253" key="GridCell.Tab.1.right" timestamp="1620141033535">
+    <state width="1345" height="236" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1619619885012" />
+    <state width="1345" height="236" key="GridCell.Tab.1.right" timestamp="1619619885012">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="253" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1620141033535" />
-    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1620134245886">
+    <state width="1345" height="236" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1619619885012" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1619286334981">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1620134245886" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1619286334981" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/interfaz.py</url>
-          <line>84</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/interfaz.py</url>
-          <line>85</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/GeneracionVariablesAleatorias/generadores.py</url>
-          <line>208</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

@@ -14,9 +14,6 @@ class Generador_Numeros(QMainWindow):
     media_Norm=None
     landa_Cuason=None
     desviac_Norm=None
-    chi_cuadrad=[]
-    vector=[]
-    Fo=[]
     def __init__(self):
         super() . __init__()
 
@@ -35,14 +32,12 @@ class Generador_Numeros(QMainWindow):
         for diccionario in numeros:
             resultado.append(diccionario['nro_random'])
         return resultado
-    def filtrar(self, numeros):
-        resultado = []
-        for diccionario in numeros:
-            resultado.append(diccionario['nro_random'])
-        return resultado
 
     def limpiar_interfaz_prueba_frecuencia(self):
         self.txt_intervalos.clear()
+        self.dgv_chicuadrado.clearSelection()
+        self.dgv_chicuadrado.setCurrentCell(-1, -1)
+        self.dgv_chicuadrado.setRowCount(0)
 
 
     def accion_prueba_ChiCuadrado(self):
@@ -61,12 +56,12 @@ class Generador_Numeros(QMainWindow):
             self.mostrar_mensaje("Error", "La cantidad de intervalos tiene que ser mayor a cero")
             return
 
-
-        frecuencias_esperadas,frecuenciaReal, mediaDeCadaIntervalo, intervalos = self.controlador.testChiCuadrado(id_metodo,
+        frecuenciaEsperada, frecuenciaReal, mediaDeCadaIntervalo, intervalos = self.controlador.testChiCuadrado(id_metodo,
             self.numeros_aleatorios, cantidad_intervalos,maximo,minimo,self.media_Exp,self.media_Norm,self.desviac_Norm,self.landa_Cuason)
 
-        chi_cuadrado, chi = self.controlador.prueba_chicuadrado(frecuenciaReal,frecuencias_esperadas)
-        self.cargar_tabla_numeros_aleatorios1(frecuencias_esperadas)
+        chi_cuadrado = self.controlador.prueba_chicuadrado(frecuenciaEsperada, frecuenciaReal)
+        chi_cuadrado, chi = self.controlador.prueba_chicuadrado(frecuenciaReal, frecuenciaEsperada)
+        self.cargar_tabla_numeros_aleatorios1(frecuenciaEsperada)
         self.cargar_tabla_numeros_aleatorios2(frecuenciaReal)
         self.cargar_tabla_numeros_aleatorios3(mediaDeCadaIntervalo)
         self.cargar_tabla_numeros_aleatorios4(intervalos)
@@ -75,12 +70,7 @@ class Generador_Numeros(QMainWindow):
         self.mostrar_mensaje("Valor obtenido", "El valor de Chi cuadrado obtenido es %s"
                              % str(chi_cuadrado).replace(".", ","))
 
-
-        self.controlador.generar_histograma(mediaDeCadaIntervalo,frecuencias_esperadas,frecuenciaReal)
-
-
-
-
+        self.controlador.generar_histograma(mediaDeCadaIntervalo, frecuenciaEsperada, frecuenciaReal)
 
     def cargar_tabla_numeros_aleatorios1(self,frecuencias_esperadas):
         self.dgv_chicuadrado.setRowCount(len(frecuencias_esperadas))
@@ -117,7 +107,6 @@ class Generador_Numeros(QMainWindow):
             chi_c= str(n).replace(".", ",")
             self.dgv_chicuadrado.setItem(fila,4,QTableWidgetItem(chi_c))
             fila +=1
-
 
     def accion_seleccionar_distribucion(self):
         id_metodo = self.cmbDistribucion.itemData(self.cmbDistribucion.currentIndex())
@@ -273,7 +262,7 @@ class Generador_Numeros(QMainWindow):
         self.cmbDistribucion.addItem("Distribución Uniforme", 0)
         self.cmbDistribucion.addItem("Distribución exponencial", 1)
         self.cmbDistribucion.addItem("Distribución normal ", 2)
-        self.cmbDistribucion.addItem("Distribucion cuasson", 3)
+        self.cmbDistribucion.addItem("Distribucion cuason", 3)
 
         # Preparo tabla de numeros generados
         self.dgv_VariablesAleatorias.setColumnCount(2)
@@ -301,7 +290,6 @@ class Generador_Numeros(QMainWindow):
         self.dgv_chicuadrado.setCurrentCell(-1, -1)
         self.dgv_chicuadrado.setRowCount(0)
         self.numeros_aleatorios = []
-
 
     def showEvent(self, QShowEvent):
         self.preparar_interfaz()
